@@ -1,5 +1,3 @@
-import queryString from 'query-string'
-
 import { client } from './client'
 import type {
   RepositorySearchRequestDTO,
@@ -16,10 +14,12 @@ interface RepositorySearchResourceResponse {
 export const repositorySearchResource = async (
   request: RepositorySearchRequestDTO
 ) => {
-  const parsedRequest = queryString.stringify(request, {
-    skipEmptyString: true,
-    skipNull: true
-  })
+  const parsedRequest = new URLSearchParams()
+
+  if (request.q.trim().length) parsedRequest.set('q', request.q)
+  if (request.page) parsedRequest.set('page', request.page.toString())
+  if (request.per_page)
+    parsedRequest.set('per_page', request.per_page.toString())
 
   const url = `/search/repositories?${parsedRequest}`
 

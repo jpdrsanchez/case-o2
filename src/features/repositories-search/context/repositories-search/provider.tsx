@@ -1,7 +1,9 @@
+import type { PropsWithChildren } from 'react'
+
 import { useRepositoriesSearch } from '../../hooks/useRepositoriesSearch'
 import { RepositoriesSearchContext } from './context'
 
-export const RepositoriesSearchProvider = (props: React.PropsWithChildren) => {
+export const RepositoriesSearchProvider = (props: PropsWithChildren) => {
   const repositoriesSearch = useRepositoriesSearch()
 
   return (

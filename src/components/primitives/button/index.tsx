@@ -1,13 +1,20 @@
+import type {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  PropsWithChildren,
+  ReactNode
+} from 'react'
+
 import styles from './styles.module.css'
 
-interface ButtonProps extends React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
+interface ButtonProps extends DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > {
-  icon?: React.ReactNode
+  icon?: ReactNode
 }
 
-export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
+export const Button = (props: PropsWithChildren<ButtonProps>) => {
   const { icon, ...buttonProps } = props
   const shouldRenderIcon = Boolean(icon)
 

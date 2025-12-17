@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useId, type ReactNode } from 'react'
 
 import styles from './styles.module.css'
 
@@ -6,7 +6,7 @@ interface InputProps {
   name: string
   value: string
   onChange: (value: string) => void
-  icon?: React.ReactNode
+  icon?: ReactNode
   id?: string
   placeholder?: string
   ariaLabel?: string

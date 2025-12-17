@@ -7,7 +7,7 @@ export const timeAgo = (isoDateString: string): string => {
 }
 
 export const longDate = (isoDateString: string): string => {
-  const date = DateTime.fromISO(isoDateString)
+  const date = DateTime.fromISO(isoDateString, { locale: 'pt-BR' })
 
   return date.toFormat("dd 'de' LLLL 'de' yyyy")
 }

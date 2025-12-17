@@ -25,6 +25,7 @@ export const SearchSection = () => {
       <div className={styles.wrapper}>
         <div className={styles['input-wrapper']}>
           <Input
+            ariaLabel="Pesquisar repositórios"
             placeholder="Pesquisar repositórios"
             name="search"
             value={filters.query}
@@ -52,42 +53,45 @@ export const SearchSection = () => {
           </ul>
         )}
         {Boolean(items?.length && !loading) && (
-          <ul className={styles.list}>
-            {items?.map(item => {
-              return (
-                <li key={item.id}>
-                  <SearchItem
-                    {...item}
-                    onClick={() => {
-                      console.log('clicou no item do search section')
-                      handleSelectItem(item)
-                    }}
-                  />
-                </li>
-              )
-            })}
-          </ul>
+          <>
+            <ul className={styles.list}>
+              {items?.map(item => {
+                return (
+                  <li key={item.id}>
+                    <SearchItem
+                      {...item}
+                      onClick={() => {
+                        handleSelectItem(item)
+                      }}
+                    />
+                  </li>
+                )
+              })}
+            </ul>
+            <nav className={styles.pagination}>
+              <Button
+                aria-label="Página anterior"
+                disabled={!pagination.hasPrev}
+                icon={<LeftArrowIcon fill="#e3eefb" />}
+                onClick={() => {
+                  handlePagination({
+                    current: pagination.current - 1
+                  })
+                }}
+              />
+              <Button
+                aria-label="Próxima página"
+                disabled={!pagination.hasNext}
+                icon={<RightArrowIcon fill="#e3eefb" />}
+                onClick={() => {
+                  handlePagination({
+                    current: pagination.current + 1
+                  })
+                }}
+              />
+            </nav>
+          </>
         )}
-        <nav className={styles.pagination}>
-          <Button
-            disabled={!pagination.hasPrev}
-            icon={<LeftArrowIcon fill="#e3eefb" />}
-            onClick={() => {
-              handlePagination({
-                current: pagination.current - 1
-              })
-            }}
-          />
-          <Button
-            disabled={!pagination.hasNext}
-            icon={<RightArrowIcon fill="#e3eefb" />}
-            onClick={() => {
-              handlePagination({
-                current: pagination.current + 1
-              })
-            }}
-          />
-        </nav>
       </div>
     </Card>
   )
