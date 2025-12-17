@@ -1,0 +1,28 @@
+:root {
+  /* Typography */
+  --font-sans: Inter, sans-serif;
+
+  /* Colors */
+  --color-brand-50: #f2f8fd;
+  --color-brand-100: #e3eefb;
+  --color-brand-200: #c1def6;
+  --color-brand-300: #8bc2ee;
+  --color-brand-400: #4da3e3;
+  --color-brand-500: #2482c9;
+  --color-brand-600: #176ab2;
+  --color-brand-700: #145590;
+  --color-brand-800: #154977;
+  --color-brand-900: #173e63;
+  --color-brand-950: #0f2842;
+
+  --color-white: #fff;
+  --color-background: #f6f6f6;
+  --color-typography: #1f1f1f;
+  --color-border: #d1d1d1;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-typo);
+}
