@@ -1,3 +1,6 @@
+/**
+ * Model related to pagination in repository search results.
+ */
 export interface PaginationModel {
   first: number
   last: number

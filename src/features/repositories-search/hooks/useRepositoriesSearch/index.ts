@@ -6,6 +6,12 @@ import { searchItemMapper } from '../../mappers/search-item'
 import type { PaginationModel } from '../../models/pagination'
 import { debounce } from '../../utils/debounce'
 
+/**
+ * This hook manages the state and logic for searching repositories.
+ * It handles filters, pagination, results retrieval, and error/loading states.
+ *
+ * @returns An object containing state and handler functions for repository search.
+ */
 export const useRepositoriesSearch = () => {
   const [filters, setFilters] = useState<SearchrRepositoryFiltersModel>({
     perPage: 5,

@@ -1,6 +1,9 @@
 import { createContext } from 'react'
 import type { RepositorySearch } from './types'
 
+/**
+ * Context for managing repository search state and actions.
+ */
 export const RepositoriesSearchContext = createContext<RepositorySearch>({
   error: undefined,
   loading: undefined,

@@ -1,3 +1,7 @@
+/**
+ * This module defines the repository search resource function for interacting with the GitHub API.
+ */
+
 import { client } from './client'
 import type {
   RepositorySearchRequestDTO,
@@ -11,6 +15,14 @@ interface RepositorySearchResourceResponse {
   pagination: PaginationModel
 }
 
+/**
+ * This function performs a search for repositories on GitHub based on the provided request parameters.
+ * It constructs the appropriate query string, makes a GET request to the GitHub API, and processes the response to extract data and pagination information.
+ *
+ * @param request The search request parameters (filters and pagination)
+ *
+ * @returns The search results and pagination information retrieved from the GitHub API.
+ */
 export const repositorySearchResource = async (
   request: RepositorySearchRequestDTO
 ) => {

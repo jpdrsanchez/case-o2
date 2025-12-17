@@ -5,6 +5,9 @@ interface PartialPagination {
   prev?: number
 }
 
+/**
+ * Generates pagination links from the GitHub API Link header.
+ */
 export const generatePagination = (
   linkHeader?: string | null
 ): PartialPagination => {

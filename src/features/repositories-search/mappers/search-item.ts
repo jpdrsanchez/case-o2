@@ -3,6 +3,10 @@ import type { RepositorySearchItemResponseDTO } from '../api/dtos'
 import type { SearchItemModel } from '../models/search-item'
 import { formatThousands } from '../utils/numeric'
 
+/**
+ * This mapper transforms repository search item DTOs from the GitHub API
+ * into the application's SearchItemModel format.
+ */
 export const searchItemMapper = {
   toModel(dto: RepositorySearchItemResponseDTO): SearchItemModel {
     return {

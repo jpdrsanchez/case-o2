@@ -1,3 +1,6 @@
+/**
+ * Model representing a repository search item.
+ */
 export interface SearchItemModel {
   id: number
   image: string

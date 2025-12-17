@@ -3,6 +3,9 @@ import type { PropsWithChildren } from 'react'
 import { useRepositoriesSearch } from '../../hooks/useRepositoriesSearch'
 import { RepositoriesSearchContext } from './context'
 
+/**
+ * This provider component supplies the repository search context to its child components.
+ */
 export const RepositoriesSearchProvider = (props: PropsWithChildren) => {
   const repositoriesSearch = useRepositoriesSearch()
 

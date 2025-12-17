@@ -1,3 +1,10 @@
+/**
+ * DTOs related to repository search feature.
+ * In the context of this application, DTOs are used to type the data retrieved from
+ * the GitHub API for repository search operations. These data will be transformed into
+ * models used within the application.
+ */
+
 export interface RepositorySearchRequestDTO {
   q: string
   page: number
