@@ -1,20 +1,15 @@
-import { useState } from 'react'
-
-import { Card } from '../../components/data-display/card'
-import { Input } from '../../components/primitives/input'
 import styles from './styles.module.css'
+import { RepositoriesSearchProvider } from '../../features/repositories-search/context/repositories-search/provider'
+import { SearchSection } from '../../features/repositories-search/components/SearchSection'
+import { RepositorySection } from '../../features/repositories-search/components/RepositorySection'
 
 export const SearchScreen = () => {
-  const [value, setValue] = useState('')
-
   return (
-    <div className={styles.wrapper}>
-      <Card>
-        <div>
-          <Input name="search" value={value} onChange={setValue} />
-        </div>
-      </Card>
-      <Card>{value}</Card>
-    </div>
+    <RepositoriesSearchProvider>
+      <div className={styles.wrapper}>
+        <SearchSection />
+        <RepositorySection />
+      </div>
+    </RepositoriesSearchProvider>
   )
 }

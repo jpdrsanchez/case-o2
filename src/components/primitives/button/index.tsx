@@ -12,7 +12,10 @@ export const Button = (props: React.PropsWithChildren<ButtonProps>) => {
   const shouldRenderIcon = Boolean(icon)
 
   return (
-    <button className={styles.wrapper} {...buttonProps}>
+    <button
+      {...buttonProps}
+      className={`${styles.wrapper} ${shouldRenderIcon && !props.children ? styles['icon-wrapper'] : ''}`}
+    >
       {shouldRenderIcon && <span className={styles.icon}>{icon}</span>}
       {props.children}
     </button>

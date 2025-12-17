@@ -1,10 +1,6 @@
-interface SearchIconProps {
-  width?: number
-  height?: number
-  fill?: string
-}
+import type { IconProps } from './types'
 
-export const SearchIcon = (props: SearchIconProps) => {
+export const SearchIcon = (props: IconProps) => {
   const { width = 24, height = 24, fill = '#b0b0b0' } = props
 
   return (

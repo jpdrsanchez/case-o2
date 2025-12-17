@@ -1,4 +1,10 @@
 .wrapper {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
+  align-items: stretch;
+  min-height: 400px;
+
+  @media (min-width: 830px) {
+    grid-template-columns: minmax(400px, 1fr) 2fr;
+  }
 }

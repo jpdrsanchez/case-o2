@@ -1,12 +1,12 @@
 import { useId } from 'react'
 
-import { SearchIcon } from '../../icons/search'
 import styles from './styles.module.css'
 
 interface InputProps {
   name: string
   value: string
   onChange: (value: string) => void
+  icon?: React.ReactNode
   id?: string
   placeholder?: string
   ariaLabel?: string
@@ -14,12 +14,14 @@ interface InputProps {
 
 export const Input = (props: InputProps) => {
   const id = useId()
+  const shouldRenderIcon = Boolean(props.icon)
 
   return (
-    <label className={styles.wrapper} htmlFor={props.id || id}>
-      <div className={styles.icon}>
-        <SearchIcon />
-      </div>
+    <label
+      className={`${styles.wrapper} ${shouldRenderIcon ? styles['wrapper-icon'] : ''}`}
+      htmlFor={props.id || id}
+    >
+      {shouldRenderIcon && <span className={styles.icon}>{props.icon}</span>}
       <input
         className={styles.input}
         name={props.name}

@@ -13,11 +13,24 @@
   border-radius: 0.5rem;
   width: 100%;
   cursor: pointer;
+  justify-content: center;
+  transition: all 0.2s linear;
+
+  &:hover {
+    background: var(--color-brand-400);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
 
 .icon-wrapper {
   justify-content: center;
   width: 2.5rem;
+  padding: 0;
 }
 
 .icon {

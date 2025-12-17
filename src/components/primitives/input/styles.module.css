@@ -1,9 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
-  padding-block: 0.5rem;
-  padding-right: 1rem;
-  padding-left: 3rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--color-border);
   position: relative;
   height: 2.5rem;
@@ -22,6 +20,10 @@
       fill: var(--color-brand-500);
     }
   }
+}
+
+.wrapper-icon {
+  padding-left: 3rem;
 }
 
 .icon {
