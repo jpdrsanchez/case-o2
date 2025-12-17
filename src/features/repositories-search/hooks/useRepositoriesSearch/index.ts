@@ -32,6 +32,11 @@ export const useRepositoriesSearch = () => {
   const [loading, setLoading] = useState<boolean>()
   const [error, setError] = useState<boolean>()
 
+  /**
+   * This function retrieves repository search results based on the provided filters and pagination.
+   * It updates the results, total count, pagination, loading and error state accordingly.
+   * It also performs the mapping of the API response to the application's data model.
+   */
   const handleGetResults = useCallback(
     async (request: SearchrRepositoryFiltersModel & { page: number }) => {
       try {
@@ -57,6 +62,9 @@ export const useRepositoriesSearch = () => {
     []
   )
 
+  /**
+   * This function updates the search filters with the provided partial filters.
+   */
   const handleFilters = useCallback(
     (newFilters: Partial<SearchrRepositoryFiltersModel>) => {
       setFilters(prev => ({
@@ -67,6 +75,9 @@ export const useRepositoriesSearch = () => {
     []
   )
 
+  /**
+   * This function updates the pagination state with the provided partial pagination.
+   */
   const handlePagination = useCallback(
     (newPagination: Partial<PaginationModel>) => {
       setPagination(prev => ({
@@ -77,6 +88,9 @@ export const useRepositoriesSearch = () => {
     []
   )
 
+  /**
+   * This function clears the current search state, resetting filters, pagination, results, loading, error, and total count.
+   */
   const handleClear = useCallback(() => {
     setFilters({
       query: '',
@@ -99,8 +113,14 @@ export const useRepositoriesSearch = () => {
 
   const { current } = pagination
 
+  /**
+   * This function debounces the search requests to avoid excessive API calls while the user is typing.
+   */
   const debouncedSearch = useRef(debounce(handleGetResults, 500))
 
+  /**
+   * This effect triggers the debounced search whenever the filters or current page change.
+   */
   useEffect(() => {
     if (filters.query.length > 0) {
       debouncedSearch.current({ ...filters, page: current })
